@@ -1,25 +1,23 @@
-
-import React from "react";
-// import './../styles/App.css';
-import WeatherDisplay from './weatherDisplay';
-
-import React ,{useState, useEffect} from 'react';
+import React, { useState, useEffect } from 'react';
+import WeatherDisplay from './WeatherDisplay';  // Correct import
 
 const App = () => {
-  const [weather, setWeather] = useState({ temperature: 0, conditions: '' });
+  const [weather, setWeather] = useState([]);
 
   useEffect(() => {
-    // Simulate fetching weather data
-    const weatherData = { temperature: 25, conditions: 'Sunny' };
-    setWeather(weatherData);
+    // Update weather data with the provided input
+    const weatherarr = [
+        { temperature: 25, conditions: "Sunny" },
+    ];
+    setWeather(weatherarr);
   }, []);
 
   return (
-    <div className="app">
+    <div>
       <WeatherDisplay weather={weather} />
     </div>
   );
 };
 
-export default App
+export default App;
 
