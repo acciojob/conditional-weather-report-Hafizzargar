@@ -1,18 +1,22 @@
-// WeatherDisplay.js
-import React from 'react';
+import React, { useState, useEffect } from 'react';
+import WeatherDisplay from './WeatherDisplay';  // Correct import
 
-const WeatherDisplay = (props) => {
-    let { weather }=props;
-  const temperatureStyle = {
-    color: weather.temperature > 20 ? 'red' : 'blue',
-  };
+const App = () => {
+  const [weather, setWeather] = useState([]);
+
+  useEffect(() => {
+    // Update weather data with the provided input
+    const weatherarr = [
+        { temperature: 25, conditions: "Sunny" },
+    ];
+    setWeather(weatherarr);
+  }, []);
 
   return (
-    <div className="weather-display">
-      <p style={temperatureStyle}>Temperature: {weather.temperature}</p>
-      <p>Conditions: {weather.conditions}</p>
+    <div>
+      <WeatherDisplay weather={weather} />
     </div>
   );
 };
 
-export default WeatherDisplay;
+export default App;
