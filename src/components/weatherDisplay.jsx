@@ -1,22 +1,21 @@
-import React, { useState, useEffect } from 'react';
-import WeatherDisplay from './weatherDisplay';  // Correct import
+import React from 'react';
 
-const App = () => {
-  const [weather, setWeather] = useState([]);
-
-  useEffect(() => {
-    // Update weather data with the provided input
-    const weatherarr = [
-        { temperature: 25, conditions: "Sunny" },
-    ];
-    setWeather(weatherarr);
-  }, []);
-
-  return (
-    <div>
-      <WeatherDisplay weather={weather} />
-    </div>
-  );
+const WeatherDisplay = ({ weather }) => {
+    return (
+        <div>
+            {weather.map((element, index) => (
+                <div key={index}>
+                    <p >
+                        Temperature: <span style={{ color: element.temperature > 20 ? "rgb(255, 0, 0)" : "rgb(0, 128, 0)" }}>{element.temperature}</span>
+                    </p>
+                    <p>
+                        Conditions: {element.conditions}
+                    </p>
+                </div>
+            ))}
+        </div>
+    );
 };
 
-export default App;
+export default WeatherDisplay;
+
