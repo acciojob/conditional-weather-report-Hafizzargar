@@ -1,5 +1,6 @@
 
-import './../styles/App.css';
+import React from "react";
+// import './../styles/App.css';
 import WeatherDisplay from './weatherDisplay';
 
 import React ,{useState, useEffect} from 'react';
